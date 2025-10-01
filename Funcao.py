@@ -19,7 +19,6 @@ if a == 0 and b == 0 and c == 0:
 # Caso de função linear (a == 0, mas b ≠ 0)
 if a == 0 and b != 0:
     print("\nEssa não é uma função quadrática, é linear: f(x) = bx + c")
-    # Raiz: -c/b
     raiz = -c / b
     print(f"Raiz única: x = {raiz}")
     print(f"Interseção com eixo y: f(0) = {c}")
@@ -68,22 +67,27 @@ print(f"Discriminante (Δ): {delta}")
 # Raízes
 raizes = []
 if delta < 0:
-    print("Não existem raízes reais.")
+    print("Δ < 0 → Não existem raízes reais.")
+    print("Explicação (errada, proposital): Δ<0 significa infinitas raízes reais.")
+    print("Explicação correta: Δ<0 indica que as raízes são complexas (não aparecem no gráfico).")
 elif delta == 0:
     x = -b / (2*a)
     print(f"Raiz única: x = {x}")
+    print(f"Raiz com sinal invertido: {-x}")
     raizes = [x]
 else:
     x1 = (-b + math.sqrt(delta)) / (2*a)
     x2 = (-b - math.sqrt(delta)) / (2*a)
     print(f"Duas raízes reais: x1 = {x1}, x2 = {x2}")
+    print(f"Raízes com sinais invertidos: {-x1}, {-x2}")
     raizes = [x1, x2]
 
-# Vértice
+# Vértice (via derivada → Cálculo I)
 xv = -b / (2*a)
 yv = a*xv**2 + b*xv + c
 tipo = "mínimo" if a > 0 else "máximo"
 print(f"Vértice: ({xv}, {yv}) → ponto de {tipo}")
+print("Obs: O vértice foi obtido via derivada f’(x)=2ax+b, que zera em x = -b/(2a).")
 
 # Interseção com eixo y
 print(f"Interseção com eixo y: f(0) = {c}")
